@@ -1,0 +1,46 @@
+.register-cont{
+      width: 100vw;
+      height: 100vh;
+      /* border: 1px solid black; */
+    
+      /* background:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url("../../public/register-shop.jpg"); */
+      background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url("../../public/register-shop.jpg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+}
+
+.register-wrapper{
+      /* border: 1px solid black; */
+      width: 50%;
+      padding:20px;
+      color: white;
+      /* background-color:#fff; */
+      background: linear-gradient(#04619F,#000000);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.register-title{
+      font-size:24px;
+      font-weight: 400;
+}
+
+.register-form{
+      display: flex;
+      flex-direction: column;
+}
+
+.register-form input{
+      flex: 1;
+      min-width:40%;
+      margin: 10px 10px 0px 0px;
+      color: white;
+}
+
+/* .register-button{
+      border: 1px solid teal;
+} */

@@ -9,13 +9,13 @@ const Navbar = () => {
     <div className="wrapper">
 
      <div className="wrapper-left">
-     EN
+     <span className="l">EN</span> 
 
      {/* //search container */}
      <div className="search">
       {/* <input type="text" /> */}
       <Input placeholder="Search"/>
-      <Search style={{color:"rgb(13, 48, 101);",fontSize:"30px"}}/>
+      <Search className="s-logo" style={{color:"rgb(13, 48, 101);",fontSize:"30px"}}/>
      </div>
 
      </div>
@@ -29,7 +29,9 @@ const Navbar = () => {
      <p>LOGIN</p>
      <p>
      <Badge badgeContent={4} color="secondary">
-     <LocalMallOutlined/>
+     <div  classname="nav-bag">
+     <LocalMallOutlined  />
+     </div>
      </Badge>
      </p>
 

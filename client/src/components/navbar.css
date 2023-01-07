@@ -48,3 +48,57 @@
 }
 
 
+@media only screen and (max-width:380px){
+ .nav-container{
+  height: 60px;
+
+ }
+
+ .wrapper{
+  padding:10px 0px;
+ }
+
+ .l{
+  display: none;
+ }
+
+ .search input{
+  width: 50px;
+  
+ }
+
+ .search{
+  margin-left: 0px;
+ }
+
+ .wrapper-center h2{
+  font-size:16px;
+  font-weight: bold;
+  border: 1px solid teal;
+  background-color:teal;
+  color: white;
+  border-radius:30px;
+ }
+
+ .wrapper-right{
+  justify-content: center;
+  flex: 2.3;
+ }
+
+ .wrapper-right p{
+  font-size:12px;
+  margin-left: 16px;
+ }
+
+ .s-logo{
+  font-size:25px!important;
+  margin-left: 6px;
+ }
+
+ .nav-bag{
+  padding-right:2px !important;
+  border: 2px solid black!important;
+ }
+
+}
+

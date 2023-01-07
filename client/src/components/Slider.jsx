@@ -93,7 +93,8 @@ const Slider = () => {
     <div className="slide" style={{backgroundColor:"#fcf1ed"}}>
 
 <div className="slide-imageCont">
-<img src="https://www.kindpng.com/picc/m/788-7889882_fashon-shopping-png-clipart-shopping-fashion-girl-png.png" alt="Fashon Shopping Png Clipart - Shopping Fashion Girl Png, Transparent Png@kindpng.com"/>
+{/* <img src="https://www.kindpng.com/picc/m/788-7889882_fashon-shopping-png-clipart-shopping-fashion-girl-png.png" alt="Fashon Shopping Png Clipart - Shopping Fashion Girl Png, Transparent Png@kindpng.com"/> */}
+<img src="carosol1.jpg" alt="Fashon Shopping Png Clipart - Shopping Fashion Girl Png, Transparent Png@kindpng.com"/>
  </div>
 
 <div className="slide-info">
@@ -129,11 +130,11 @@ const Slider = () => {
     <div className="slide"  style={{backgroundColor:"rgba(125, 233, 233, 0.962)"}}>
 
 <div className="slide-imageCont">
-<img src="https://www.shutterstock.com/image-illustration/shop-now-30-percent-off-600w-2145405159.jpg" alt="summer"/>
+<img src="carosol3.jpg" alt="summer"/>
  </div>
 
 <div className="slide-info">
-    <h1>SUMMER SALE</h1>
+    <h1>BLACK FRIDAY SALE</h1>
     <p>Shop With Heartscontained This Friday With Big Offers</p>
     <Button style={{fontSize:"17px",padding:"7px"}} variant="outlined" color='primary'>Shop Now</Button>
 
