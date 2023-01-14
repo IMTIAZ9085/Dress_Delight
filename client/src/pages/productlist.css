@@ -28,12 +28,15 @@
   .filter-cont{
       /* border: 3px solid black!important; */
       width: 99.3%;
+      display: flex;
+      flex-direction: column;
+      padding-left: 40px;
   }
 
   .filter{
       /* border: 3px solid black!important; */
   } 
   .filter select{
-      font-size:11px;
+      font-size:9px;
   }
 }

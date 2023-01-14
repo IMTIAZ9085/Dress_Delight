@@ -28,8 +28,8 @@ const port = process.env.PORT || 5000;
 app.use('/api/users', require("./routes/User"));
 app.use('/api/auth', require("./routes/Auth"));
 app.use('/api/products', require("./routes/Product"));
-app.use('/api/carts',require("./routes/Cart"));
-app.use('/api/orders',require("./routes/Order"));
+app.use('/api/carts', require("./routes/Cart"));
+app.use('/api/orders', require("./routes/Order"));
 
 //listening server 
 app.listen(port, () => {

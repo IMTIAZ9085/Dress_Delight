@@ -2,6 +2,7 @@ import {Search,LocalMallOutlined} from "@material-ui/icons";
 import { Badge, Input } from "@material-ui/core";
 import React from 'react';
 import './navbar.css';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -21,12 +22,16 @@ const Navbar = () => {
      </div>
 
      <div className="wrapper-center">
-      <h2>DRESS DELIGHT</h2>
+     <Link to="/" style={{textDecoration:"none"}}><h2>DRESS DELIGHT</h2></Link> 
      </div>
 
      <div className="wrapper-right">
-     <p>REGISTER</p>
-     <p>LOGIN</p>
+     
+     <Link to="/register" style={{textDecoration:"none",color:"black"}}><p>REGISTER</p></Link> 
+
+   
+     <Link to="/login" style={{textDecoration:"none",color:"black"}}><p>LOGIN</p></Link> 
+
      <p>
      <Badge badgeContent={4} color="secondary">
      <div  classname="nav-bag">

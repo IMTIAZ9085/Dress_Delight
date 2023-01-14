@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./product.css";
 import Navbar from '../components/Navbar';
 import Announcement from '../components/Announcement';
@@ -6,8 +6,40 @@ import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import { Add, Remove } from '@material-ui/icons';
 import { Button } from '@material-ui/core';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 const Product = () => {
+      const location = useLocation();
+      const id = location.pathname.split('/')[2];
+      const [product,setProduct] = useState({});
+      const [quantity,setQuantity] = useState(1);
+      const [color,setColor] = useState("");
+      const [size,setSize] = useState("");
+
+      useEffect(() => {
+         const getProduct = async ()=> {
+           try {
+            const res = await axios.get(`/api/products/find/${id}`);
+            // console.log(res);
+            setProduct(res.data.data);
+           } catch (e) {
+            console.log(e);
+           }
+         }
+         getProduct()
+      
+      }, [id]);
+
+
+      const handlequantity = (type) => {
+        if(type==="dec" && quantity>1){
+         setQuantity(quantity-1);
+        }else if(type==="inc"){
+            setQuantity(quantity+1);
+        }
+      }
+      
   return (
     <div className="product-page-cont">
      <Navbar/>
@@ -15,46 +47,45 @@ const Product = () => {
     
     <div className="product-wrapper">
       <div className="img-cont">
-            <img src="nikon1.jpg" alt="product" />
+            <img src={product.img} alt="product" />
       </div>
       <div className="product-page-info">
-            <h1 className="product-page-title">Fastrack-Watch</h1>
+            <h1 className="product-page-title">{product.title}</h1>
             <p className="procuct-page-desc">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, sunt perferendis, animi cupiditate voluptatem illum, aperiam adipisci laborum vitae est nihil nobis voluptates eaque eveniet minus tempore quos aliquam praesentium.
+            {product.desc}
             </p>
-            <span className="product-price">$200</span>
+            <span className="product-price">$ {product.price}</span>
 
             <div className="filter-cont">
      <div className="filter" style={{margin:"40px"}}> 
       <span className="filter-text">Filter: </span> 
-      <select>
-     <option disabled  selected>color</option>
-     <option>Blue</option>
-     <option>White</option>
-     <option>Black</option>
-     <option>Red</option>
-     <option>Yellow</option>
-     <option>Green</option>
+
+      <select  onChange={(e)=>setColor(e.target.value)}>
+     <option disabled selected>color</option>
+     {
+      product.color?.map((col) =>(
+            <option key={col}>{col}</option>
+        ))
+     }
      </select>
 
-     <select>
+     <select  onChange={(e)=>setSize(e.target.value)}>
      <option disabled  selected>Size</option>
-     <option>S</option>
-     <option>M</option>
-     <option>XS</option>
-     <option>XL</option>
-     <option>L</option>
+     {
+      product.size?.map((col) =>(
+            <option key={col}>{col}</option>
+        ))
+     }
      </select>
-
      </div> 
      </div>
 
 <div className="add-cont">
 
       <div className="amount-cont">
-            <Remove/>
-            <span className="amount">1</span>
-            <Add/>
+            <Remove onClick={() =>handlequantity("dec")}/>
+            <span className="amount">{quantity}</span>
+            <Add onClick={() =>handlequantity("inc")}/>
       </div>
 
       <Button>Add To Cart</Button>
