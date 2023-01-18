@@ -177,4 +177,9 @@ justify-content: space-around;
  .cart-bottom{
       flex-direction: column;
  }
+
+ .cart-product-id{
+      font-size:8px;
+      /* overflow: hidden; */
+ }
 }

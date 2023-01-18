@@ -4,10 +4,12 @@ import {Search,LocalMallOutlined,ThumbUpAlt} from "@material-ui/icons";
 import { Link } from 'react-router-dom';
 
 const SingleProduct = ({item}) => {
+      console.log(item.img);
   return (
     <div>
       <div className="singleP-cont">
         <div className="circle"></div>
+
             <img src={item.img} alt="product"/>
             <div className="product-info">
                   <div className="P-icon">

@@ -3,8 +3,12 @@ import { Badge, Input } from "@material-ui/core";
 import React from 'react';
 import './navbar.css';
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const quantity = useSelector(state=>state.cart.quantity);
+  // console.log(quantity);
+
   return (
     <div className="nav-container">
     <div className="wrapper">
@@ -32,13 +36,15 @@ const Navbar = () => {
    
      <Link to="/login" style={{textDecoration:"none",color:"black"}}><p>LOGIN</p></Link> 
 
+<Link to="/cart">
      <p>
-     <Badge badgeContent={4} color="secondary">
+     <Badge badgeContent={quantity} color="secondary">
      <div  classname="nav-bag">
      <LocalMallOutlined  />
      </div>
      </Badge>
      </p>
+</Link>
 
      </div>
      </div>

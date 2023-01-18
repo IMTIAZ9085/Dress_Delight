@@ -30,4 +30,9 @@
             padding-left: 67px!important;
       
       }
+
+      .product-cont{
+            /* border: 1px solid black; */
+            overflow: hidden;
+      }
 }

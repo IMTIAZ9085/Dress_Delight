@@ -8,6 +8,8 @@ import { Add, Remove } from '@material-ui/icons';
 import { Button } from '@material-ui/core';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { addProduct } from '../redux/cartRedux';
+import { useDispatch } from 'react-redux';
 
 const Product = () => {
       const location = useLocation();
@@ -16,6 +18,8 @@ const Product = () => {
       const [quantity,setQuantity] = useState(1);
       const [color,setColor] = useState("");
       const [size,setSize] = useState("");
+      const dispatch = useDispatch();
+
 
       useEffect(() => {
          const getProduct = async ()=> {
@@ -32,6 +36,7 @@ const Product = () => {
       }, [id]);
 
 
+      //handle quantity for the product
       const handlequantity = (type) => {
         if(type==="dec" && quantity>1){
          setQuantity(quantity-1);
@@ -39,6 +44,14 @@ const Product = () => {
             setQuantity(quantity+1);
         }
       }
+
+      //update our cart
+      const handleClick = (e) => {
+       dispatch(
+       addProduct({...product,quantity,color,size})
+       );
+      }
+      
       
   return (
     <div className="product-page-cont">
@@ -88,7 +101,7 @@ const Product = () => {
             <Add onClick={() =>handlequantity("inc")}/>
       </div>
 
-      <Button>Add To Cart</Button>
+      <Button onClick={handleClick}>Add To Cart</Button>
 </div>
 
 

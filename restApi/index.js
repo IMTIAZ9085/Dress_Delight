@@ -30,6 +30,7 @@ app.use('/api/auth', require("./routes/Auth"));
 app.use('/api/products', require("./routes/Product"));
 app.use('/api/carts', require("./routes/Cart"));
 app.use('/api/orders', require("./routes/Order"));
+app.use('/api/checkout', require("./routes/stripe"));
 
 //listening server 
 app.listen(port, () => {
