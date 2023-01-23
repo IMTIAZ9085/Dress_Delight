@@ -1,0 +1,48 @@
+.topbar{
+ border: 1px solid black;
+ width: 100%;
+ height: 50px;
+ background-color:#fff;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+background-color: darkblue;
+}
+.topbar-wrapper{
+      border: 1px solid black;
+      height: 100%;
+      padding: 0px 20px;
+      display: flex;
+      align-items: center;
+      justify-content:space-between;
+}
+
+.logo{
+      font-weight: bold;
+      font-size: 27px;
+      color:white;
+      cursor: pointer;
+}
+
+.top-left{
+      /* border: 1px solid black; */
+}
+.top-right{
+      display: flex;
+      align-items: center;
+      /* border: 1px solid black; */
+}
+
+.topbar-icons-cont{
+      cursor: pointer;
+      margin-right: 16px;
+      color: white;
+}
+
+.admin-avatar{
+      /* border:1px solid black; */
+      width: 40px;
+      height: 40px;
+      border-radius:50%;
+      cursor: pointer;
+}

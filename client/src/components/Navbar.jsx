@@ -1,14 +1,22 @@
-import {Search,LocalMallOutlined} from "@material-ui/icons";
+import {Search,LocalMallOutlined, LaptopWindows} from "@material-ui/icons";
 import { Badge, Input } from "@material-ui/core";
 import React from 'react';
 import './navbar.css';
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { removeData } from "../redux/userRedux";
+import { persistor } from "../redux/store";
 
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity);
   // console.log(quantity);
-
+    const rmdata = async() => {
+      persistor.pause();
+      persistor.flush().then(() => {
+        return persistor.purge();
+      });
+      window.location.reload();
+    }
   return (
     <div className="nav-container">
     <div className="wrapper">
@@ -35,6 +43,7 @@ const Navbar = () => {
 
    
      <Link to="/login" style={{textDecoration:"none",color:"black"}}><p>LOGIN</p></Link> 
+     <button onClick={rmdata}>LOGOUT</button>
 
 <Link to="/cart">
      <p>
