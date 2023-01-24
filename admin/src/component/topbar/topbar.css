@@ -1,15 +1,16 @@
 .topbar{
- border: 1px solid black;
+ /* border: 1px solid black; */
  width: 100%;
  height: 50px;
  background-color:#fff;
  position: sticky;
  top: 0;
  z-index: 1000;
-background-color: darkblue;
+ background-color: teal;
+ color: rgb(13, 48, 101); 
 }
 .topbar-wrapper{
-      border: 1px solid black;
+      /* border: 1px solid black; */
       height: 100%;
       padding: 0px 20px;
       display: flex;

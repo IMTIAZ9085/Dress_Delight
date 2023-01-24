@@ -1,0 +1,26 @@
+.sidebar{
+      flex : 1;
+      height: calc(100vh - 50px);
+      background-color: rgba(242, 232, 232, 0.581);
+      /* border: 1px solid black; */
+}
+
+.sidebar-wrapper{
+ padding: 18px;
+}
+.sidebar-menu{
+      margin-bottom: 10px;
+      border: 1px solid black;
+}
+.sidebar-title{
+      font-size: 17px;
+      color: darkblue;
+
+}
+
+.sidebar-list{
+      list-style: none;
+      padding:6px;
+      border: 1px solid black;
+
+}

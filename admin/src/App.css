@@ -1,0 +1,10 @@
+.app-container{
+ display: flex;
+}
+.app{
+}
+
+.main-page{
+      border:1px solid black;
+      flex:4.5;
+}
