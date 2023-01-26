@@ -1,4 +1,4 @@
-import { BarChart, Home, ShowChart } from '@material-ui/icons';
+import { BarChart, AccountBalance,Home, PeopleAlt, ShowChart, ShoppingCart, Flag, Notifications, Email, Work, ReportProblem } from '@material-ui/icons';
 import React from 'react';
 import "./sidebar.css";
 
@@ -10,39 +10,80 @@ const Sidebar = () => {
             <h3 className="sidebar-title">ADMINPANEL</h3>
             <ui className="sidebar-list">
 
-                  <li className="sidebar-item">
-                        <Home/> Home
+                  <li className="sidebar-item active">
+                        <Home className="sidebaricon" /> Home
                   </li>
 
                   <li className="sidebar-item">
-                        <BarChart/> Analytics
+                        <BarChart className="sidebaricon"/> Analytics
                   </li>
 
                   <li className="sidebar-item">
-                        <ShowChart/> Sales
+                        <ShowChart className="sidebaricon"/> Sales
                   </li>
 
             </ui>
       </div>
 
       <div className="sidebar-menu">
-            <h3 className="sidebar-title">ADMINPANEL</h3>
+            <h2 className="sidebar-title">QUICK MENU</h2>
             <ui className="sidebar-list">
 
                   <li className="sidebar-item">
-                        <Home/> Home
+                        <PeopleAlt className="sidebaricon"/> Users
                   </li>
 
                   <li className="sidebar-item">
-                        <BarChart/> Analytics
+                        <ShoppingCart className="sidebaricon"/> Products
                   </li>
 
                   <li className="sidebar-item">
-                        <ShowChart/> Sales
+                        <AccountBalance className="sidebaricon"/> Transaction
+                  </li>
+                  <li className="sidebar-item">
+                        <Flag className="sidebaricon"/> Reports
                   </li>
 
             </ui>
       </div>
+
+
+      <div className="sidebar-menu">
+            <h2 className="sidebar-title">NOTIFICATION</h2>
+            <ui className="sidebar-list">
+
+                  <li className="sidebar-item">
+                        <Notifications className="sidebaricon"/> Feedback
+                  </li>
+
+                  <li className="sidebar-item">
+                        <Email className="sidebaricon"/> Mail
+                  </li>
+
+
+            </ui>
+      </div>
+
+
+      <div className="sidebar-menu">
+            <h2 className="sidebar-title">STAFF</h2>
+            <ui className="sidebar-list">
+
+                  <li className="sidebar-item">
+                        <Work className="sidebaricon"/> Manage
+                  </li>
+
+                  <li className="sidebar-item">
+                        <BarChart className="sidebaricon"/> Analytics
+                  </li>
+
+                  <li className="sidebar-item">
+                        <ReportProblem className="sidebaricon"/> Reports
+                  </li>
+
+            </ui>
+      </div>
+
 
       
      </div>
