@@ -9,7 +9,7 @@ const Info = () => {
 {/* //BLOCK 1 */}
  <div className="f-item">
       <span className="f-title">Revanue</span>
-      <div className="f-money-cont">
+      <div className="f-money-cont"> 
       <span className="f-money">$3,422</span>
       <span className="f-moneyRate">+22.0 <ArrowUpward className="f-icon"/> </span>
       </div>

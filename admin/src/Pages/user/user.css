@@ -1,0 +1,89 @@
+.user{
+      flex: 4;
+      padding: 10px;
+}
+.user-title-cont{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+.user-add-btn{
+      border: none;
+      background-color: green!important;
+      color: white!important;
+}
+
+.user-cont{
+      display: flex;
+}
+
+.user-show{
+      flex: 1;
+      padding: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.user-update{
+      flex: 2;
+      padding: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      margin-left: 20px;
+}
+
+.user-show-top{
+      display: flex;
+      align-items: center;
+}
+
+.user-show-img{
+      width: 40px;
+      height: 40px;
+      border-radius:50%;
+      object-fit: cover;
+}
+.user-show-top-title{
+      display: flex;
+      flex-direction:column;
+      margin-left: 40px;
+}
+.user-show-username{
+      font-weight: 600;
+}
+
+
+.user-show-bottom{
+      margin-top: 21px;
+}
+.user-show-btm-title{
+      font-size: 14px;
+      font-weight: 600;
+      color: darkblue;
+}
+
+.user-show-info{
+      display: flex;
+      align-items: center;
+      margin: 15px 0px;
+      color: grey;
+}
+
+.user-show-icon{
+      font-size: 18px!important;
+}
+.user-show-info-title{
+      margin-left: 14px;
+}
+.user-upload-img{
+      height: 45px;
+      width: 45px;
+      /* border-radius:10px; */
+      object-fit: cover;
+      margin-right: 22px;
+
+}
+
+.user-update-form{
+      display: flex;
+      justify-content: space-between;
+}

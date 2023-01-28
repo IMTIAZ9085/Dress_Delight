@@ -1,0 +1,58 @@
+.widgeL{
+      flex: 2;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 18px;
+      /* padding: 0; */
+}
+
+.wl-title{
+      font-size: 25px;
+      font-weight: 600;
+}
+
+.wl-img{
+      width: 40px;
+      height: 40px;
+      border-radius:50%;
+      object-fit: cover;
+      margin-right: 13px;
+}
+
+.wl-btn{
+      display: flex;
+      align-items: center;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: lightblue;
+}
+.wl-btn:hover{
+      background-color:white;
+}
+
+.wl-btn.Approved{
+      background-color:#e5faf2;
+}
+
+.wl-btn.Decline{
+      background-color:rgb(221, 184, 184);
+}
+.wl-btn.Pending{
+      background-color:rgb(192, 192, 213)violet;
+}
+
+.wl-table{
+      width: 100%;
+      border-spacing: 20px;
+}
+
+.wl-th{
+      text-align: left;
+}
+
+.wl-User{
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+
+}

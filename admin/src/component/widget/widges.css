@@ -1,0 +1,59 @@
+.widges{
+ flex: 1;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ padding: 18px;
+ margin-right: 22px;
+}
+
+.ws-title{
+      font-size: 25px;
+      font-weight: 600;
+}
+
+.ws-list-item img{
+      width: 40px;
+      height: 40px;
+      border-radius:50%;
+      object-fit: cover;
+}
+
+.ws-list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+}
+
+.ws-list-item{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0px;
+}
+
+.ws-user{
+      display: flex;
+      flex-direction: column;
+}
+
+.ws-username{
+      font-weight: 600;
+
+}
+.ws-job{
+font-weight: 200!important;
+}
+
+.ws-btn{
+      display: flex;
+      align-items: center;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: lightblue;
+      /* color: white; */
+      /* padding: 1px 1px; */
+}
+
+.ws-btn:hover{
+      background-color:white;
+}
