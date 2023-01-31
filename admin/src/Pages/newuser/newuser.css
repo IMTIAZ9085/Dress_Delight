@@ -1,0 +1,40 @@
+.newuser{
+      flex:4;
+      padding: 20px;
+}
+
+.nu-form{
+      display: flex;
+      flex-wrap: wrap;
+}
+.nu-item{
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      margin-right: 20px;
+}
+
+.nu-item>label{
+      font-weight: 600;
+      color: darkblue;
+}
+
+.nu-title{
+      font-weight: 300;
+      color: darkblue;
+}
+
+.nu-select{
+      height: 40px;
+      border-radius: 10px;
+}
+
+.nu-create-btn{
+      width: 50%!important;
+      outline: none!important;
+      background-color: teal!important;
+      font-weight: 300!important;
+      margin-top: 40px!important;
+      margin-left: 240px!important;
+}

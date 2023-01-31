@@ -4,6 +4,12 @@
 .app{
 }
 
+.link{
+      text-decoration: none;
+      color: inherit;
+}
+
+
 /* .main-page{
       /* border:1px solid black; */
       /* flex:4.5; */

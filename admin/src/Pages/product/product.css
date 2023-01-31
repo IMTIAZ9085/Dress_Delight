@@ -1,0 +1,127 @@
+.product{
+      flex: 4;
+      padding: 17px;
+}
+ 
+.p-title-cont{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+
+.p-add-btn{
+      border: none;
+      background-color: green!important;
+      color: white!important;
+}
+
+.p-top-left{
+      /* border: 1px solid black; */
+      /* width: 400px; */
+}
+
+.p-info-img{
+      width: 54px;
+      height: 54px;
+      border-radius:50%;
+      object-fit: contain;
+      margin-right: 20px;
+}
+
+.p-top{
+      display: flex;
+}
+
+.p-top-left,.p-top-right{
+      flex: 1;
+      /* border: 1px solid green!important; */
+
+}
+
+.p-top-right{
+ padding:20px;
+ margin: 20px;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.p-info-top{
+      display: flex;
+      align-items: center;
+}
+
+.p-name{
+      font-weight: 600;
+}
+
+.p-info-bottom{
+      margin-top: 10px;
+}
+
+.p-info-item{
+      display: flex;
+      justify-content: space-between;
+      width: 180px;
+}
+
+.p-info-key{
+      font-weight: 600;
+}
+.p-info-value{
+      font-weight: 300;
+}
+
+.p-bottom{
+      padding:20px;
+      margin: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     }
+
+     .p-form{
+      display: flex;
+      justify-content: space-between;
+     }
+.p-form-left{
+      display: flex;
+      flex-direction: column;
+}
+
+.p-form-left>label{
+      margin-bottom: 10px;
+      color: gray;
+}
+
+.p-form-left>Input{
+      margin-bottom: 10px!important;
+      padding: 6px!important;
+}
+.p-form-left>select{
+      margin-bottom: 10px;
+      /* padding: 6px!important; */
+}
+
+.p-upload-img{
+      width: 100px;
+      height: 100px;
+      border-radius:10px;
+      object-fit: contain;
+      margin-right: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+.p-form-right{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+}
+
+.p-upload{
+      display: flex;
+      align-items: center;
+}
+
+.p-btn{
+      background-color: darkblue!important;
+      color: white!important;
+      font-weight: 600!important;
+}

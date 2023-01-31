@@ -9,7 +9,7 @@ import "./home.css";
 const Home = () => {
   return (
     <div className="home">
-     
+      
     <Info/> 
     <Chart data={userdata} title="User Analytics" grid datakey="Active User"/>
     <div className="h-widgets">

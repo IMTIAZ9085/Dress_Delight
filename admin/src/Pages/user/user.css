@@ -75,15 +75,55 @@
       margin-left: 14px;
 }
 .user-upload-img{
-      height: 45px;
-      width: 45px;
-      /* border-radius:10px; */
+      height: 100px;
+      width: 100px;
+      border-radius:10px;
       object-fit: cover;
       margin-right: 22px;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 
 }
 
 .user-update-form{
       display: flex;
       justify-content: space-between;
+      margin-top: 15px;
+}
+
+.user-update-title{
+      font-size: 25px;
+      font-weight: 600;
+}
+
+.user-update-item{
+      display: flex;
+      flex-direction: column;
+      margin-top: 5px;
+}
+
+.user-update-item label{
+      margin-bottom: 5px;
+      font-size: 15px;
+}
+
+.user-update-right{
+      display: flex;
+      flex-direction: column;
+      justify-content:space-between;
+}
+
+.user-update-cont{
+      display: flex;
+      align-items:center;
+}
+
+.user-update-icon{
+      cursor: pointer;
+}
+
+.user-update-btn{
+       border: none;
+      background-color: darkblue!important;
+      color: white!important;
 }

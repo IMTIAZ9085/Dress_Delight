@@ -38,6 +38,7 @@
 .sidebar-list li{
       list-style: none;
       font-size: 15px;
+      color: rgb(57, 47, 47);
       /* padding:2px; */
       /* border: 1px solid black; */
 
@@ -59,4 +60,5 @@
 .sidebaricon{
       margin-right: 10px;
       font-size: 19px!important;
+      color: darkblue;
 }

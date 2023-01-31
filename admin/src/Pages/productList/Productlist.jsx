@@ -1,35 +1,39 @@
-// import React from 'react';
-import "./userlist.css";
-import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import React from 'react';
+import "./productlist.css";
 import {DeleteOutline} from "@material-ui/icons";
 import { Button } from "@mui/material";
-import { rows } from "../../data";
+import {Productrows } from "../../data";
 import {Link} from "react-router-dom";
 import { useState } from "react";
-const Userlist = () => {
-      const [data,setData] = useState(rows);
-      const columns = [
+
+const Productlist = () => {
+      const [data,setData] = useState(Productrows);
+      const handledlt = (id)=>{
+            setData(data.filter((item)=> item.id!==id));
+           }
+
+           const columns = [
             { field: 'id', headerName: 'ID', width: 70 },
-            { field: 'userName', headerName: 'Username', width: 200,renderCell:(params)=>{ 
+            { field: 'product', headerName: 'Product', width: 200,renderCell:(params)=>{ 
                   return (
                         <div className="render-cell-style">
-                              <img className="us-ls-img" src={params.row.avatar} alt="" />
-                              {params.row.userName}
+                              <img className="pl-ls-img" src={params.row.avatar} alt="" />
+                              {params.row.name}
                         </div>
                   )
             } },
-            { field: 'email', headerName: 'Email', width: 200 },
-            {
-                  field: 'transaction',
-                  headerName: 'Transaction',
-                  width: 160
-                },
+            { field: 'stock', headerName: 'Stock', width: 200 },
             {
               field: "status",
               headerName: 'Status',
               width: 100,
             },
+            {
+                  field: "price",
+                  headerName: 'Price',
+                  width: 100,
+                },
             {
                   field: "action",
                   headerName: 'Action',
@@ -37,11 +41,11 @@ const Userlist = () => {
                   renderCell: (params)=>{
                     return(
                         <>
-                         <Link style={{textDecoration:"none"}} to={"/user/"+params.row.id}>
-                        <Button className="us-ls-edit">Edit</Button>
+                         <Link style={{textDecoration:"none"}} to={"/product/"+params.row.id}>
+                        <Button className="pl-ls-edit">Edit</Button>
                         </Link>
                         {/* <button type="button" >Edit</button> */}
-                        <DeleteOutline className="us-ls-dlt" onClick={() => handledlt(params.row.id)}/>
+                        <DeleteOutline className="pl-ls-dlt" onClick={() => handledlt(params.row.id)}/>
                        </>
                     )
                   }
@@ -49,16 +53,13 @@ const Userlist = () => {
             
           ];
           
-        
-const handledlt = (id)=>{
- setData(data.filter((item)=> item.id!==id));
-}
+
+
+
 
   return (
-    <div className="userlist">
-    Userlist
-
-    <DataGrid
+    <div className="productlist">
+      <DataGrid
         rows={data}
         columns={columns}
         pageSize={5}
@@ -66,9 +67,8 @@ const handledlt = (id)=>{
         checkboxSelection
         disableSelectionOnClick
       />
-
     </div>
   )
 }
 
-export default Userlist
+export default Productlist;

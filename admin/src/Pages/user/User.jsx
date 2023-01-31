@@ -2,17 +2,20 @@ import React from 'react';
 import "./user.css";
 import {Button, Input} from "@material-ui/core";
 import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, Public, Publish } from '@material-ui/icons';
+import {Link} from "react-router-dom";
 
 const User = () => {
   return (
     <div className="user">
      <div className="user-title-cont">
       <h1 className="user-title">
-            Edit User
+            Create User
       </h1>
+      <Link style={{textDecoration:"none"}}to="/newuser">
       <Button className="user-add-btn">
-            Update
+            Create
       </Button>
+      </Link>
      </div>
 
      <div className="user-cont">
@@ -107,11 +110,12 @@ const User = () => {
                   </div>
 
                   <div className="user-update-right">
-                        <div className="user-update-upload">
+                        <div className="user-update-cont">
                               <img className="user-upload-img" src="http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcTF1-h_O3puyTlOfqWbZwOqtBJRkBxUYGpr72jqiDJVcZaoO5lR5r--M4tfcNhgs4EmwG9Whx-TqgQXnQg" alt="" />
-                              <label htmlFor="file"><Publish/></label>
+                              <label htmlFor="file"><Publish className="user-update-icon"/></label>
                               <Input style={{"display":"none"}} type="file" id="file" />
                         </div>
+                        <Button className="user-update-btn">Update</Button>
                   </div>
             </form>
       </div>
