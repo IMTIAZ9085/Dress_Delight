@@ -1,5 +1,7 @@
 .product-cont{
-      padding: 20px;
+      padding: 50px;
+      /* padding-left: 30px; */
+      margin-left: 80px;
       display: flex;
       flex-wrap: wrap;
       /* border: 2px solid black; */
@@ -34,5 +36,7 @@
       .product-cont{
             /* border: 1px solid black; */
             overflow: hidden;
+            width: 100%;
+            margin-left:0px;
       }
 }

@@ -41,7 +41,7 @@ const Register = () => {
   return (
     <div className="register-cont">
     <div className="left">
-      
+       <h1 className="reg-head">DRESS DELIGHT</h1>
     </div>
     <div className="right">
      <div className="register-wrapper">

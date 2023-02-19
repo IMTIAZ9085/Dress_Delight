@@ -55,7 +55,6 @@
 }
 
 .cart-bottom-summary{
-  border: 2px solid black;
   flex: 1;
 }
 
@@ -129,10 +128,12 @@ justify-content: space-around;
       padding:20px;
       height: 50vh;
       background-color: #fff;
+      border: 2px solid black;
+      margin-bottom: 90px;
 }
 
 .summary-title{
-      font-weight: 200;
+      font-weight: 200; 
 
 }
 
@@ -153,6 +154,7 @@ justify-content: space-around;
       outline: none !important;
       background-color:rgb(63, 136, 34)!important;
       color: #fff !important;
+      /* margin-bottom: 20px!important; */
 }
 
 @media only screen and (max-width:380px){

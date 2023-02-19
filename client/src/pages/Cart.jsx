@@ -25,9 +25,6 @@ const onToken = (token) => {
 }
 console.log(stripeToken);
 
-const handleOrder = async ()=>{
-  
-}
 
 useEffect(()=>{
   // console.log(user.currentUser);
@@ -177,7 +174,8 @@ useEffect(()=>{
   token={onToken}
   stripeKey={process.env.REACT_APP_STRIPE}
   >
-  <Button onClick={handleOrder} className="ct-btn">CHECKOUT NOW</Button>
+  <Button className="ct-btn">CHECKOUT NOW</Button>
+  
   </StripeCheckout>
 
      </div>

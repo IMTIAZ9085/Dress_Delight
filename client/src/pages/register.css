@@ -65,8 +65,16 @@
       background-size:     cover;                      /* <------ */
       background-repeat:   no-repeat;
       background-position: center center;
+      display: flex;
+      align-items: center;
+      justify-content:center;
 }
 
+.reg-head{
+      font-size:126px;
+      color: gray;
+      font-weight: bold;
+}
 .policy{
       font-size:10px!important;
 }
@@ -80,3 +88,26 @@
  background: linear-gradient(#04619F,#000000);
 
 }
+
+
+@media only screen and (max-width:380px){
+      .register-cont{
+            flex-direction: column;
+      }
+
+      .reg-head{
+            font-size:42px;
+            color: white;
+            margin-left: 10px;
+            font-weight: bold;
+      }
+
+      .register-wrapper{
+            font-size:12px;
+      }
+      .register-title{
+            font-size:25px;
+            font-weight: 600;
+      }
+
+    }

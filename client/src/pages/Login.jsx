@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div className="register-cont">
     <div className="left">
-
+    <h1 style={{color:"teal"}} className="reg-head">DRESS DELIGHT</h1>
     </div>
     <div className="right">
     <div className="register-wrapper">

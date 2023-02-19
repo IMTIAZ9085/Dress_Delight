@@ -66,7 +66,7 @@ const ProductList = () => {
      <option value="dsc">Price (decreasing)</option>
      </select>
 
-     </div>
+     </div> 
      </div>
     <Products cat={cat} filter={filter} sort={sort}/>
     <Newsletter/>
