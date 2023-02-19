@@ -58,17 +58,16 @@ exports.updateProduct = async (req, res, next) => {
 // ==========================DELETE PRODUCT DETAILS===================================================
 exports.deleteProduct = async (req, res, next) => {
       try {
-            const pp = await User.findById(req.params.id);
+            const pp = await Product.findById(req.params.id);
             if (pp) {
                   await pp.deleteOne();
                   res.status(200).json("THE PRODUCT HAS DELETED SUCCESSFULLY");
             } else {
                   res.status(200).json("THIS PRODUCT DOES NOT EXIST");
             }
-
       } catch (err) {
             res.status(500).json(err);
-      }
+      } 
 }
 
 // ==========================get any product details by ADMIN===================================================

@@ -1,17 +1,42 @@
 import { Visibility } from '@material-ui/icons';
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import "./widges.css";
 
 const WidgeS = () => {
+const [users,setUsers] = useState([]);
+
+useEffect(()=>{
+ const userDetails = async()=>{
+      const TOKEN = localStorage.getItem("authToken");
+      try{
+            const res = await axios.get('/api/users/?new=true',{
+                  headers: {token:`Bearer ${TOKEN}`},
+            });
+            setUsers(res.data.data);
+            // console.log(res);
+      }catch(e){
+            console.log(e);
+      } 
+ };
+
+ userDetails();
+
+},[]);
+ 
   return (
     <div className="widges">
      <span className="ws-title">NEW JOINED MEMBERS</span>
      <ul className="ws-list">
 
-      <li className="ws-list-item">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSly0txX3sRodpDz5r6KSUwalEsKE9uxNJk9Q&usqp=CAU" alt="userImg" />
+  {
+      users.map((user) =>(
+
+
+      <li className="ws-list-item" key={user._id}>
+      <img src={user.img} alt="userImg" />
             <div className="ws-user">
-            <span className="ws-username">Sk Imtiaz</span>
+            <span className="ws-username">{user.username}</span>
             <span className="ws-job">Blockchain developer</span>
             </div>
             <button className="ws-btn">
@@ -20,54 +45,10 @@ const WidgeS = () => {
             </button>
       </li>
 
-      <li className="ws-list-item">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSly0txX3sRodpDz5r6KSUwalEsKE9uxNJk9Q&usqp=CAU" alt="userImg" />
-            <div className="ws-user">
-            <span className="ws-username">Sk Imtiaz</span>
-            <span className="ws-job">Blockchain developer</span>
-            </div>
-            <button className="ws-btn">
-                  <Visibility/>
-                  View
-            </button>
-      </li>
 
-      <li className="ws-list-item">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSly0txX3sRodpDz5r6KSUwalEsKE9uxNJk9Q&usqp=CAU" alt="userImg" />
-            <div className="ws-user">
-            <span className="ws-username">Sk Imtiaz</span>
-            <span className="ws-job">Blockchain developer</span>
-            </div>
-            <button className="ws-btn">
-                  <Visibility/>
-                  View
-            </button>
-      </li>
 
-      <li className="ws-list-item">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSly0txX3sRodpDz5r6KSUwalEsKE9uxNJk9Q&usqp=CAU" alt="userImg" />
-            <div className="ws-user">
-            <span className="ws-username">Sk Imtiaz</span>
-            <span className="ws-job">Blockchain developer</span>
-            </div>
-            <button className="ws-btn">
-                  <Visibility/>
-                  View
-            </button>
-      </li>
-
-      <li className="ws-list-item">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSly0txX3sRodpDz5r6KSUwalEsKE9uxNJk9Q&usqp=CAU" alt="userImg" />
-            <div className="ws-user">
-            <span className="ws-username">Sk Imtiaz</span>
-            <span className="ws-job">Blockchain developer</span>
-            </div>
-            <button className="ws-btn">
-                  <Visibility/>
-                  View
-            </button>
-      </li>
-
+      ))
+  }
 
      </ul>
     </div>

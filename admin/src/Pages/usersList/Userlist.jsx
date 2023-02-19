@@ -5,9 +5,16 @@ import { DataGrid } from '@mui/x-data-grid';
 import {DeleteOutline} from "@material-ui/icons";
 import { Button } from "@mui/material";
 import { rows } from "../../data";
-import {Link} from "react-router-dom";
-import { useState } from "react";
+import {Link, useNavigate} from "react-router-dom";
+import { useState,useEffect } from "react";
 const Userlist = () => {
+  const navigate = useNavigate(); 
+
+  useEffect(()=>{
+  if(localStorage.getItem("authToken")==null){
+    navigate("/");
+  }
+  },[])
       const [data,setData] = useState(rows);
       const columns = [
             { field: 'id', headerName: 'ID', width: 70 },
@@ -15,7 +22,7 @@ const Userlist = () => {
                   return (
                         <div className="render-cell-style">
                               <img className="us-ls-img" src={params.row.avatar} alt="" />
-                              {params.row.userName}
+                               {params.row.userName}
                         </div>
                   )
             } },

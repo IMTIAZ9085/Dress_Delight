@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 exports.orderProduct = async (req, res) => {
       const newProduct = new Order(req.body);
 
-      try {
+      try { 
 
             const orderDetails = await newProduct.save();
 
@@ -151,7 +151,7 @@ exports.getAllOrderData = async (req, res, next) => {
 //       }
 // };
 
-
+ 
 //===================GET REVENUE DETAILS PER MONTH ==============================================
 exports.getIncomestats = async (req, res, next) => {
       const date = new Date();
@@ -175,7 +175,7 @@ exports.getIncomestats = async (req, res, next) => {
                               sales: "$amount"
                         },
                   },
-                  {
+                  { 
                         $group: {
                               _id: "$month",
                               total: {

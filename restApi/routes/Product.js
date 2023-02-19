@@ -17,7 +17,8 @@ const {
 
 router.route("/registerProduct").post(tokenAdminAuthorization, registerProduct);
 router.route("/:id").put(tokenAdminAuthorization, updateProduct);
-router.route("/:id").delete(tokenAdminAuthorization, deleteProduct);
+// router.route("/del/:id").delete(tokenAdminAuthorization, deleteProduct);
+router.route("/del/:id").delete(deleteProduct);
 router.route("/find/:id").get(getProduct);
 router.route("/").get(getAllProduct);
 

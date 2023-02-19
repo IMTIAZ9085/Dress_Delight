@@ -54,8 +54,8 @@
   flex: 3;
 }
 
-.cart-bottom-summary {
-  /* border: 1px solid black; */
+.cart-bottom-summary{
+  border: 2px solid black;
   flex: 1;
 }
 

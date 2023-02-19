@@ -1,34 +1,63 @@
 import { DataGrid } from '@mui/x-data-grid';
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./productlist.css";
-import {DeleteOutline} from "@material-ui/icons";
+import {DeleteOutline, LaptopWindows} from "@material-ui/icons";
 import { Button } from "@mui/material";
 import {Productrows } from "../../data";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
+import {useDispatch,useSelector} from "react-redux";
+import { getProductFailure } from '../../redux/productRedux';
+import { delProducts, getProducts } from '../../redux/apiCalls';
+import axios from 'axios';
 
 const Productlist = () => {
+  const navigate = useNavigate();
+  if(localStorage.getItem("authToken")==null){
+    navigate("/");
+  }
       const [data,setData] = useState(Productrows);
-      const handledlt = (id)=>{
-            setData(data.filter((item)=> item.id!==id));
-           }
+      const dispatch = useDispatch();
+      const products = useSelector((state)=>state.product.products.data);
+
+    useEffect(()=>{
+      if(localStorage.getItem("authToken")==null){
+        navigate("/");
+      }else{
+        getProducts(dispatch);
+      }
+    },[dispatch]);
+
+    const token = localStorage.getItem("authToken");
+
+      const handledlt = async(id)=>{
+            // setData(data.filter((item)=> item.id!==id));
+            // delProducts(id,dispatch);
+            try{
+            //   const res = await axios.delete(`/api/products/del/${id}`,{
+            //     headers: {token:`Bearer ${token}`},
+            // });
+            const res = await axios.delete(`/api/products/del/${id}`);
+            window.location.reload();
+        
+              console.log(res);
+            }catch(e){
+             console.log(e);
+            }
+           };
 
            const columns = [
-            { field: 'id', headerName: 'ID', width: 70 },
+            { field: '_id', headerName: 'ID', width: 230 },
             { field: 'product', headerName: 'Product', width: 200,renderCell:(params)=>{ 
                   return (
                         <div className="render-cell-style">
-                              <img className="pl-ls-img" src={params.row.avatar} alt="" />
-                              {params.row.name}
+                              <img className="pl-ls-img" src={params.row.img} alt="" />
+                              {params.row.title}
                         </div>
                   )
             } },
-            { field: 'stock', headerName: 'Stock', width: 200 },
-            {
-              field: "status",
-              headerName: 'Status',
-              width: 100,
-            },
+            { field: 'instock', headerName: 'Stock', width: 200 },
+          
             {
                   field: "price",
                   headerName: 'Price',
@@ -41,11 +70,11 @@ const Productlist = () => {
                   renderCell: (params)=>{
                     return(
                         <>
-                         <Link style={{textDecoration:"none"}} to={"/product/"+params.row.id}>
+                         <Link style={{textDecoration:"none"}} to={"/product/"+params.row._id}>
                         <Button className="pl-ls-edit">Edit</Button>
                         </Link>
                         {/* <button type="button" >Edit</button> */}
-                        <DeleteOutline className="pl-ls-dlt" onClick={() => handledlt(params.row.id)}/>
+                        <DeleteOutline className="pl-ls-dlt" onClick={() => handledlt(params.row._id)}/>
                        </>
                     )
                   }
@@ -60,12 +89,12 @@ const Productlist = () => {
   return (
     <div className="productlist">
       <DataGrid
-        rows={data}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
+        rows={products}
         disableSelectionOnClick
+        columns={columns}
+        getRowId={(row) => row._id}
+        pageSize={5}
+        checkboxSelection
       />
     </div>
   )

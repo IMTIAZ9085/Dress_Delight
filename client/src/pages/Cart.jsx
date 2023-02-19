@@ -8,12 +8,14 @@ import { Button } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import StripeCheckout from "react-stripe-checkout";
 import { useEffect } from 'react';
-import { userRequest } from '../requestMethods';
+import { publicRequest, userRequest } from '../requestMethods';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const Cart = () => {
 const navigate = useNavigate();
 const cart = useSelector(state=>state.cart);
+const user = useSelector((state)=>state.user);
 const [stripeToken,setStripeToken] = useState(null);
 // const [orderId, setOrderId] = useState(null);
 const KEY = process.env.REACT_APP_STRIPE;
@@ -23,17 +25,26 @@ const onToken = (token) => {
 }
 console.log(stripeToken);
 
+const handleOrder = async ()=>{
+  
+}
+
 useEffect(()=>{
+  // console.log(user.currentUser);
+  // console.log(cart);
   const makePayment = async() => {
       try{
+        // const TOKEN = localStorage.getItem('authToken');
+        const id = user.currentUser.data._id;
         const res1 = await userRequest.post("/checkout/payment",{
           tokenId: stripeToken.id,
           amount:cart.total_price*100,
         });
-       console.log(res1); 
-      const res2 = await userRequest.post("/orders/order_Product/63b5a2f401407ff364787b91", {
-        userId: "63b5a2f401407ff364787b91",
-        products:[cart.products.map((item) => ({
+       console.log(res1);  
+      if(res1){
+      const res2 = await publicRequest.post(`/orders/order_Product/${id}`,{
+          userId: id,
+          products:[cart.products.map((item) => ({
           productId: item._id,
           quantity: item.quantity,
         }))],
@@ -45,7 +56,7 @@ useEffect(()=>{
       console.log(res2);
       console.log(res2.data._id);
         navigate("/success",{state:{orderId:res2.data.data.userId}});
-
+    }
       }catch(e){
           console.log(e);
       }
@@ -63,7 +74,7 @@ useEffect(()=>{
   
   stripeToken && cart.total_price>=1 && makePayment();
 
-},[stripeToken,cart.total_price,navigate,cart]);
+},[stripeToken,cart.total_price,cart,user.currentUser]);
 
 
   return (
@@ -166,7 +177,7 @@ useEffect(()=>{
   token={onToken}
   stripeKey={process.env.REACT_APP_STRIPE}
   >
-  <Button className="ct-btn">CHECKOUT NOW</Button>
+  <Button onClick={handleOrder} className="ct-btn">CHECKOUT NOW</Button>
   </StripeCheckout>
 
      </div>

@@ -1,26 +1,64 @@
 import { Button, Checkbox, FormControlLabel, FormGroup, Input } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import "./register.css";
+import {useNavigate} from 'react-router-dom';
+import axios from "axios";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const [Input, setInput] = useState({
+    username:"",
+    email:"",
+    password:"",
+    img:""
+})
+  const handleUpdate=async(event)=>{
+    const {name,value} = event.target;
+    setInput(previnput=>{
+     return{
+      ...previnput,
+      [name]:value
+     }
+    })
+    }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try{
+     const res = await axios.post('/api/auth/register',Input);
+     console.log(res);
+     if(res){
+      localStorage.setItem("authToken",res.data.data.Token);
+      navigate("/");
+     }
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+
+
   return (
     <div className="register-cont">
+    <div className="left">
+      
+    </div>
+    <div className="right">
      <div className="register-wrapper">
        <h1 className="register-title">CREATE AN ACCOUNT</h1>
        <form className='register-form'>
-       <Input type="text" placeholder="First Name" />
-       <Input type="text" placeholder="Last Name" />
-       <Input  type="text" placeholder="Username" />
-       <Input type="email" placeholder="email" />
-       <Input type="text" placeholder="password" />
-       <Input type="text" placeholder="confirm password" />
+       <input type="text" onChange={handleUpdate} name ="username" value={Input.username} placeholder="Username" />
+       <input type="text" onChange={handleUpdate} name ="email" value={Input.email} placeholder="Email" />
+       <input type="text" onChange={handleUpdate} name ="password" value={Input.password} placeholder="Password" />
+       <input type="file" onChange={handleUpdate} name ="img" value={Input.img} />
        <FormGroup>
-        <FormControlLabel style={{fontWeight:"300"}} control={<Checkbox />} label="I am willingly 
+        <FormControlLabel  className="policy" style={{fontWeight:"300",fontSize:"10px"}} control={<Checkbox />} label="I am willingly 
         giving my personal data
         in accordance with Privacy Policy" />
        </FormGroup>
-       <Button style={{width:"40%",outline:"none",backgroundColor:"teal",color:"white",padding:"10px"}} className='register-button'>SIGN UP</Button>
+       <Button onClick={handleSubmit} style={{width:"40%",outline:"none",backgroundColor:"teal",color:"white",padding:"10px"}} className='register-button'>SIGN UP</Button>
        </form>
+     </div>
      </div>
     </div>
   )

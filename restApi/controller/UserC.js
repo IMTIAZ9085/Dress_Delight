@@ -8,6 +8,7 @@ exports.register = async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: CryptoJS.AES.encrypt(req.body.password, process.env.PASSWORD_SECRET_KEY).toString(),
+            img:req.body.img
       };
 
       try {
@@ -15,10 +16,31 @@ exports.register = async (req, res) => {
             const user = await User.create(newUser);
 
             if (user) {
+                  const Token = jwt.sign({
+                        id: user._id,
+                        isAdmin: user.isAdmin
+                  }, process.env.JWT_SECRET_KEY, {
+                        expiresIn: "3d"
+                  });
+
+                  const {
+                        password,
+                        ...others
+                  } = user._doc;
                   res.status(201).json({
                         success: true,
+                        data: {
+                              ...others,
+                              Token
+                        },
                         message: "User Created Successfully"
                   });
+
+                  // res.status(201).json({
+                        // success: true,
+                        // data:user,
+                        // message: "User Created Successfully"
+                  // });
             } else {
                   res.status(401).json({
                         success: false,

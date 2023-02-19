@@ -7,6 +7,8 @@ import { Navigate } from 'react-router-dom';
 // import { publicRequest } from '../requestMethods';
 // import { loginFailure, loginStart, loginSuccess } from '../redux/userRedux';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import "./login.css";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -17,32 +19,49 @@ const Login = () => {
 
   const handleLogin = async (e) => {
   e.preventDefault();
+  try{
+    const res = await axios.post('/api/auth/login',{email: email, password: password});
+    console.log(res);
+    if(res){
+      localStorage.setItem("authToken",res.data.data.Token);
+      navigate("/");
+    }else{
+      alert("Login Failed");
+    }
+  }catch(e) {
+    console.log(e);
+  }
   login(dispatch,{email: email, password: password});
-  navigate("/");
+ 
  }
 
   return (
     <div className="register-cont">
+    <div className="left">
+
+    </div>
+    <div className="right">
     <div className="register-wrapper">
       <h1 className="register-title">SIGN INTO YOUR ACCOUNT</h1>
       <form className='register-form'>
-      <Input  type="email" placeholder="email" 
+      <input  type="email" placeholder="email" 
       onChange={(e)=>setEmail(e.target.value)}
        />
-      <Input type="password" placeholder="password"
+      <input type="password" placeholder="password"
             onChange={(e)=>setPassword(e.target.value)}
        />
       
       <Button 
-      style={{marginTop:"20px",width:"30%",outline:"none",backgroundColor:"teal",color:"white",padding:"9px"}} 
+      style={{marginTop:"20px",width:"60%",outline:"none",backgroundColor:"teal",color:"white",padding:"9px"}} 
       className='register-button'
       onClick={handleLogin}
       disabled={isFetching}
       >SIGN IN</Button>
 {  error &&  <span style={{color:"red"}} className="err">Oops!..Something Went Wrong</span>}      
       <a href="/forgetPassword">Forget Password?</a>
-      <Link to="/register">Create a New Account</Link>
+      <a href="/register">Create a New Account</a>
       </form>
+    </div>
     </div>
    </div>
   )

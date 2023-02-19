@@ -1,8 +1,31 @@
 import { ArrowDownward, ArrowUpward } from '@material-ui/icons';
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./info.css";
 
 const Info = () => {
+ const [income,setIncome] = useState();
+ const navigate = useNavigate();
+ const TOKEN = localStorage.getItem("authToken");
+ if(!localStorage.getItem("authToken")){
+     navigate("/login");
+   }
+useEffect(()=>{
+const getIncome = async()=>{
+try{
+     const res = await axios.get('/api/orders/income',{
+          headers: {token:`Bearer ${TOKEN}`},
+      });
+     
+      console.log(res);
+}catch(e){
+     console.log(e);
+}
+}
+getIncome();
+},[]);
+
   return (
 <div className="f-info">
 

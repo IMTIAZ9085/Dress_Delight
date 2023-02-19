@@ -11,10 +11,11 @@ import Slider from '../components/Slider';
 
 const Home = () => {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user.currentUser);
-  console.log(user);
+  // const user = useSelector((state) => state.user.currentUser);
+  // console.log(user);
   useEffect(()=>{
-   if(!user) navigate("/login");
+  //  if(!user) navigate("/login");
+  if(!localStorage.getItem("authToken"));
   },[]);
 
   return (

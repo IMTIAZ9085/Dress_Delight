@@ -11,7 +11,7 @@ const Sidebar = () => {
             <h3 className="sidebar-title">ADMINPANEL</h3>
             <ui className="sidebar-list">
                  <Link to="/" className="link">
-                  <li className="sidebar-item active">
+                  <li className="sidebar-item ">
                         <Home className="sidebaricon" /> Home
                   </li>
                   </Link>

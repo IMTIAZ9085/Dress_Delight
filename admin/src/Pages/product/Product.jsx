@@ -1,17 +1,23 @@
 import { Button, Input } from '@material-ui/core';
 import {  PublishOutlined } from '@material-ui/icons';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 import Chart from '../../component/chart/Chart';
 import { newdata, productData,userdata } from '../../data';
 import "./product.css";
 
 
 const Product = () => {
+  const location = useLocation();
+  const productId = location.pathname.split("/")[2];
+ const product = useSelector(state=>state.product.products.data.find(product=>product._id === productId));
+//  console.log(product);
+
   return (
     <div className="product">
       <div className="p-title-cont">
-            <h1 className="p-title">Product</h1>
+            <h1 className="p-title">{product.title}</h1>
             <Link to="/newProduct" className="link">
             <Button className="p-add-btn">Create</Button>
             </Link>
@@ -24,14 +30,14 @@ const Product = () => {
       </div>
       <div className="p-top-right">
       <div className="p-info-top">
-            <img src="https://m.media-amazon.com/images/I/81uHJImFdAL._UL1500_.jpg" alt="" className="p-info-img" />
-            <span className="p-name">Fastrack Sunglass</span>
+            <img src={product.img} alt="" className="p-info-img" />
+            <span className="p-name">{product.title}</span>
 
       </div>
       <div className="p-info-bottom">
             <div className="p-info-item">
             <span className="p-info-key">id:</span>
-            <span className="p-info-value">129</span>
+            <span className="p-info-value">{product._id}</span>
             </div>
 
             <div className="p-info-item">
@@ -39,14 +45,18 @@ const Product = () => {
             <span className="p-info-value">435</span>
             </div>
 
-            <div className="p-info-item">
-            <span className="p-info-key">active:</span>
-            <span className="p-info-value">yes</span>
-            </div>
 
             <div className="p-info-item">
-            <span className="p-info-key">Stock:</span>
-            <span className="p-info-value">144</span>
+            <span className="p-info-key">Price:</span>
+            <span className="p-info-value">{product.price}</span>
+            </div>
+
+      
+
+            <div className="p-info-item">
+          { product.instock &&
+            <span className="p-info-key">InStock</span>}
+            {/* <span className="p-info-value"></span> */}
             </div>
       </div>
       </div>
@@ -56,24 +66,27 @@ const Product = () => {
         <form  className="p-form">
         <div className="p-form-left">
           <label>Product Name</label>
-          <Input type="text" name="actice" placeholder="air shoes"/>
+          <Input type="text" name="actice" placeholder={product.title}/>
+          
+          <label>Product Description</label>
+          <Input type="text" name="actice" placeholder={product.desc}/>
+
+          <label>Product Price</label>
+          <Input type="text" name="actice" placeholder={product.price}/>
+
           <label>In Stock</label>
           <select name="instock" id="idstock">
-          <option value="yes">YES</option>
-          <option value="no">NO</option>
+          <option value="true">YES</option>
+          <option value="false">NO</option>
           </select>
 
-          <label>Active</label>
-          <select name="active" id="active">
-          <option value="yes">YES</option>
-          <option value="no">NO</option>
-          </select>
+        
 
         </div>
 
         <div className="p-form-right">
         <div className="p-upload">
-          <img className="p-upload-img" src="https://m.media-amazon.com/images/I/81uHJImFdAL._UL1500_.jpg" alt="p-u" />
+          <img className="p-upload-img" src={product.img} alt="p-u" />
           <label for="file">
             <PublishOutlined/>
           </label>

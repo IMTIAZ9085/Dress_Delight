@@ -4,7 +4,7 @@
       /* border: 1px solid black; */
     
       /* background:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url("../../public/register-shop.jpg"); */
-      background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url("../../public/register-shop.jpg");
+      /* background-image:url("../../public/register-shop.jpg"); */
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
@@ -16,17 +16,23 @@
 
 .register-wrapper{
       /* border: 1px solid black; */
-      width: 50%;
+      width: 100%;
+      height: 100%;
       padding:20px;
       color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       /* background-color:#fff; */
-      background: linear-gradient(#04619F,#000000);
+      /* background: linear-gradient(#04619F,#000000); */
       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .register-title{
-      font-size:24px;
+      font-size:34px;
       font-weight: 400;
+      color: blueviolet;
 }
 
 .register-form{
@@ -37,10 +43,40 @@
 .register-form input{
       flex: 1;
       min-width:40%;
-      margin: 10px 10px 0px 0px;
+      margin: 20px 20px 0px 0px;
       color: white;
+      outline: none;
+      /* border: none; */
+      background: none;
+      border: none;
+      margin-bottom: 20px;
+      border-bottom: 1px solid gray;
 }
 
 /* .register-button{
       border: 1px solid teal;
 } */
+
+.left{
+      /* border:1px solid black; */
+      height:100%;
+      width: 100%;
+      background-image:url("../../public/register-shop.jpg");
+      background-size:     cover;                      /* <------ */
+      background-repeat:   no-repeat;
+      background-position: center center;
+}
+
+.policy{
+      font-size:10px!important;
+}
+
+.right{
+      /* border:1px solid red; */
+      height:100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+ background: linear-gradient(#04619F,#000000);
+
+}

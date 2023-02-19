@@ -19,7 +19,8 @@ const Product = () => {
       const [color,setColor] = useState("");
       const [size,setSize] = useState("");
       const dispatch = useDispatch();
-
+    
+      const token = localStorage.getItem("authToken");
 
       useEffect(() => {
          const getProduct = async ()=> {
@@ -101,8 +102,8 @@ const Product = () => {
             <Add onClick={() =>handlequantity("inc")}/>
       </div>
 
-      <Button onClick={handleClick}>Add To Cart</Button>
-</div>
+{    token &&  <Button onClick={handleClick}>Add To Cart</Button>
+}</div>
 
 
 
