@@ -128,13 +128,12 @@ justify-content: space-around;
       padding:20px;
       height: 50vh;
       background-color: #fff;
-      border: 2px solid black;
+      /* border: 2px solid black; */
       margin-bottom: 90px;
 }
 
 .summary-title{
-      font-weight: 200; 
-
+      font-weight: 200;
 }
 
 .summary-item{

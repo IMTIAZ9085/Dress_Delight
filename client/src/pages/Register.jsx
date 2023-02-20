@@ -3,8 +3,13 @@ import React, { useState } from 'react';
 import "./register.css";
 import {useNavigate} from 'react-router-dom';
 import axios from "axios";
+import { login } from '../redux/apiCalls';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Register = () => {
+  const dispatch = useDispatch();
+  // const {isFetching,error} = useSelector((state)=>state.user);
   const navigate = useNavigate();
   const [Input, setInput] = useState({
     username:"",
@@ -34,6 +39,9 @@ const Register = () => {
     }catch(err){
       console.log(err);
     }
+
+    login(dispatch,{email: Input.email, password: Input.password});
+
   }
 
 

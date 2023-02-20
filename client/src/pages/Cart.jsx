@@ -23,7 +23,7 @@ const KEY = process.env.REACT_APP_STRIPE;
 const onToken = (token) => {
   setStripeToken(token);
 }
-console.log(stripeToken);
+// console.log(stripeToken);
 
 
 useEffect(()=>{
@@ -52,7 +52,9 @@ useEffect(()=>{
       // setOrderId(res2._id);
       console.log(res2);
       console.log(res2.data._id);
+      if(res2){
         navigate("/success",{state:{orderId:res2.data.data.userId}});
+      }
     }
       }catch(e){
           console.log(e);
